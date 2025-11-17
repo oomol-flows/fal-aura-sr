@@ -1,0 +1,29 @@
+inputs_def:
+  - handle: image_url
+    description: "URL of the image to enhance"
+    json_schema:
+      type: string
+    nullable: false
+
+outputs_def:
+  - handle: session_id
+    description: "Session ID for polling the enhancement result"
+    json_schema:
+      type: string
+
+  - handle: success
+    description: "Whether the request was submitted successfully"
+    json_schema:
+      type: boolean
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Enhance Image Clarity"
+icon: ":carbon:image-search-alt:"
+description: "This module enhances image clarity using AI-powered super
+  resolution technology. It takes a blurry or low-resolution image URL and
+  returns a high-quality enhanced version."

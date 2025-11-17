@@ -1,0 +1,20 @@
+{
+  "nodes": {
+    "enhance#1": {
+      "rfNode": {
+        "position": {
+          "x": 150,
+          "y": -192
+        }
+      }
+    },
+    "upload-to-cloud#1": {
+      "rfNode": {
+        "position": {
+          "x": -361.5,
+          "y": -221
+        }
+      }
+    }
+  }
+}
