@@ -1,5 +1,10 @@
 title: "Local Image Enhancement"
-description: "Enhances image quality and clarity from a local file using AI-powered super-resolution. This subflow uploads a local image file to cloud storage, submits it to the enhancement service, polls for completion, and downloads the enhanced result to a specified location. Perfect for batch processing or improving resolution of local image files with automatic file handling."
+description: "Enhances image quality and clarity from a local file using
+  AI-powered super-resolution. This subflow uploads a local image file to cloud
+  storage, submits it to the enhancement service, polls for completion, and
+  downloads the enhanced result to a specified location. Perfect for batch
+  processing or improving resolution of local image files with automatic file
+  handling."
 icon: ":carbon:image-search-alt:"
 nodes:
   - node_id: upload-to-cloud#1
@@ -75,7 +80,8 @@ inputs_def:
       type: string
       ui:widget: file
     nullable: false
-    description: "The local file path of the image to enhance. The file will be uploaded to cloud storage and processed by the AI enhancement service."
+    description: "The local file path of the image to enhance. The file will be
+      uploaded to cloud storage and processed by the AI enhancement service."
     value: /oomol-driver/oomol-storage/ooimage.jpg
     executor_name: nodejs
   - handle: saved_path
@@ -83,7 +89,9 @@ inputs_def:
       type: string
       ui:widget: save
     nullable: true
-    description: "Optional destination path where the enhanced image will be saved. If not specified, the system will choose an appropriate location automatically."
+    description: "Optional destination path where the enhanced image will be saved.
+      If not specified, the system will choose an appropriate location
+      automatically."
     value:
     executor_name: python
 outputs_def:
@@ -92,7 +100,9 @@ outputs_def:
       type: string
       ui:widget: save
     nullable: false
-    description: "The local file path where the AI-enhanced image has been successfully saved. This path points to the downloaded result with improved clarity and resolution."
+    description: "The local file path where the AI-enhanced image has been
+      successfully saved. This path points to the downloaded result with
+      improved clarity and resolution."
     executor_name: python
 outputs_from:
   - handle: saved_path
