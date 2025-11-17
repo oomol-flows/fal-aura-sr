@@ -1,25 +1,25 @@
 inputs_def:
   - handle: task_id
-    description: "Task ID returned from the conversion request"
+    description: "%task-id-returned-from-the-conversion-request2%"
     json_schema:
       type: string
     nullable: false
   - group: Polling Options
     collapsed: true
   - handle: enable_polling
-    description: "Enable automatic polling until task completes (default: true)"
+    description: "%enable-automatic-polling-until-task-completes-default-true2%"
     json_schema:
       type: boolean
     value:
     nullable: true
   - handle: max_attempts
-    description: "Maximum number of polling attempts (default: 60)"
+    description: "%maximum-number-of-polling-attempts-default-602%"
     json_schema:
       type: number
     value:
     nullable: true
   - handle: interval_seconds
-    description: "Interval between polling attempts in seconds (default: 5)"
+    description: "%interval-between-polling-attempts-in-seconds-default-52%"
     json_schema:
       type: number
     value:
@@ -27,19 +27,19 @@ inputs_def:
 
 outputs_def:
   - handle: status
-    description: "Task status (e.g., pending, completed, failed)"
+    description: "%task-status-e-g-pending-completed-failed2%"
     json_schema:
       type: string
   - handle: image_url
-    description: "URL of the enhanced image (available when status is completed)"
+    description: "%url-of-the-enhanced-image-available-when-status-is-completed2%"
     json_schema:
       type: string
   - handle: result
-    description: "Complete result data from the API"
+    description: "%complete-result-data-from-the-api2%"
     json_schema:
       type: object
   - handle: is_completed
-    description: "Boolean indicating if the task is completed"
+    description: "%boolean-indicating-if-the-task-is-completed2%"
     json_schema:
       type: boolean
 
@@ -49,8 +49,7 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Query Conversion Result"
+title: "%query-conversion-result2%"
 icon: ":carbon:status-change:"
-description: "Query the status and result of an image enhancement conversion
-  task from fal-aura-sr API with optional polling support"
+description: "%query-the-status-and-result-of-an-image-enhancement-conversion-t2%"
 private: true

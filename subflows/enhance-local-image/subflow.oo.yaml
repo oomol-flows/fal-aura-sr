@@ -1,14 +1,9 @@
-title: "Local Image Enhancement"
-description: "Enhances image quality and clarity from a local file using
-  AI-powered super-resolution. This subflow uploads a local image file to cloud
-  storage, submits it to the enhancement service, polls for completion, and
-  downloads the enhanced result to a specified location. Perfect for batch
-  processing or improving resolution of local image files with automatic file
-  handling."
+title: "%local-image-enhancement%"
+description: "%enhances-image-quality-and-clarity-from-a-local-file-using-ai-po%"
 icon: ":carbon:image-search-alt:"
 nodes:
   - node_id: upload-to-cloud#1
-    title: "Upload file to cloud #1"
+    title: "%upload-file-to-cloud-1%"
     inputs_from:
       - handle: file
         value: /oomol-driver/oomol-storage/ooimage.jpg
@@ -24,7 +19,7 @@ nodes:
           - node_id: upload-to-cloud#1
             output_handle: remote_url
   - node_id: query-conversion-result#1
-    title: "Query Conversion Result #1"
+    title: "%query-conversion-result-1%"
     inputs_from:
       - handle: task_id
         from_node:
@@ -38,7 +33,7 @@ nodes:
         value: 5
     task: self::query-conversion-result
   - node_id: file-downloader#1
-    title: "下载文件 #1"
+    title: "%1%"
     inputs_from:
       - handle: url
         from_node:
@@ -76,33 +71,28 @@ nodes:
     subflow: downloader::file-downloader
 inputs_def:
   - handle: file
+    description: "%the-local-file-path-of-the-image-to-enhance-the-file-will-be-upl%"
     json_schema:
       type: string
       ui:widget: file
-    nullable: false
-    description: "The local file path of the image to enhance. The file will be
-      uploaded to cloud storage and processed by the AI enhancement service."
     value: /oomol-driver/oomol-storage/ooimage.jpg
+    nullable: false
     executor_name: nodejs
   - handle: saved_path
+    description: "%optional-destination-path-where-the-enhanced-image-will-be-saved%"
     json_schema:
       type: string
       ui:widget: save
-    nullable: true
-    description: "Optional destination path where the enhanced image will be saved.
-      If not specified, the system will choose an appropriate location
-      automatically."
     value:
+    nullable: true
     executor_name: python
 outputs_def:
   - handle: saved_path
+    description: "%the-local-file-path-where-the-ai-enhanced-image-has-been-success%"
     json_schema:
       type: string
       ui:widget: save
     nullable: false
-    description: "The local file path where the AI-enhanced image has been
-      successfully saved. This path points to the downloaded result with
-      improved clarity and resolution."
     executor_name: python
 outputs_from:
   - handle: saved_path

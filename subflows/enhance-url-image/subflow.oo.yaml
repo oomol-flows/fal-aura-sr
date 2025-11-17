@@ -1,9 +1,5 @@
-title: "Url Image Enhancement"
-description: "Enhances image quality and clarity from a remote URL using
-  AI-powered super-resolution. This subflow submits an image URL to the
-  enhancement service, polls for completion, and returns the URL of the enhanced
-  result. Ideal for improving resolution and visual quality of images hosted on
-  remote servers without downloading them first."
+title: "%url-image-enhancement2%"
+description: "%enhances-image-quality-and-clarity-from-a-remote-url-using-ai-po2%"
 icon: ":carbon:image-search:"
 nodes:
 
@@ -16,7 +12,7 @@ nodes:
         from_node:
           []
   - node_id: query-conversion-result#1
-    title: "Query Conversion Result #1"
+    title: "%query-conversion-result-13%"
     inputs_from:
       - handle: task_id
         from_node:
@@ -31,20 +27,17 @@ nodes:
     task: self::query-conversion-result
 inputs_def:
   - handle: image_url
+    description: "%the-publicly-accessible-http-https-url-of-the-image-to-enhance-t2%"
     json_schema:
       type: string
     nullable: false
-    description: "The publicly accessible HTTP/HTTPS URL of the image to enhance.
-      The image will be processed remotely by the enhancement service."
     executor_name: python
 outputs_def:
   - handle: image_url
+    description: "%the-url-of-the-ai-enhanced-image-with-improved-clarity-and-resol2%"
     json_schema:
       type: string
     nullable: false
-    description: "The URL of the AI-enhanced image with improved clarity and
-      resolution. This URL becomes available once the enhancement process
-      completes successfully."
     executor_name: python
 outputs_from:
   - handle: image_url
