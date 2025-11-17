@@ -1,10 +1,9 @@
 version: 0.0.1
 scripts:
-  # Script executed when the container is first loaded
-  # eg: bootstrap: poetry add pandas
   bootstrap: |
     npm install
     poetry install --no-root
 dependencies:
   upload-to-cloud: 0.0.5
   oomol-preview: 0.2.0
+icon: ./icon.png
