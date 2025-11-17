@@ -1,0 +1,44 @@
+title: "Url Image Enhancement"
+nodes:
+
+  - node_id: enhance#1
+    task: self::enhance-image-clarity
+    inputs_from:
+      - handle: image_url
+        from_flow:
+          - input_handle: image_url
+        from_node:
+          []
+  - node_id: query-conversion-result#1
+    title: "Query Conversion Result #1"
+    inputs_from:
+      - handle: task_id
+        from_node:
+          - node_id: enhance#1
+            output_handle: session_id
+      - handle: enable_polling
+        value: true
+      - handle: max_attempts
+        value: 60
+      - handle: interval_seconds
+        value: 5
+    task: self::query-conversion-result
+inputs_def:
+  - handle: image_url
+    json_schema:
+      type: string
+    nullable: false
+    description: URL of the image to enhance
+    executor_name: python
+outputs_def:
+  - handle: image_url
+    json_schema:
+      type: string
+    nullable: false
+    description: URL of the enhanced image (available when status is completed)
+    executor_name: python
+outputs_from:
+  - handle: image_url
+    from_node:
+      - node_id: query-conversion-result#1
+        output_handle: image_url

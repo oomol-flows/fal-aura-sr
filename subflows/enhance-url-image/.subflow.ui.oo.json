@@ -1,0 +1,38 @@
+{
+  "nodes": {
+    "enhance#1": {
+      "rfNode": {
+        "position": {
+          "x": 486,
+          "y": 81
+        }
+      }
+    },
+    "query-conversion-result#1": {
+      "rfNode": {
+        "position": {
+          "x": 972,
+          "y": 0
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 153
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1458,
+          "y": 153
+        }
+      }
+    }
+  }
+}

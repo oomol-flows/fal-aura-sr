@@ -1,0 +1,97 @@
+title: "Local Image Enhancement"
+nodes:
+  - node_id: upload-to-cloud#1
+    title: "Upload file to cloud #1"
+    inputs_from:
+      - handle: file
+        value: /oomol-driver/oomol-storage/ooimage.jpg
+        from_flow:
+          - input_handle: file
+    task: upload-to-cloud::upload-to-cloud
+
+  - node_id: enhance#1
+    task: self::enhance-image-clarity
+    inputs_from:
+      - handle: image_url
+        from_node:
+          - node_id: upload-to-cloud#1
+            output_handle: remote_url
+  - node_id: query-conversion-result#1
+    title: "Query Conversion Result #1"
+    inputs_from:
+      - handle: task_id
+        from_node:
+          - node_id: enhance#1
+            output_handle: session_id
+      - handle: enable_polling
+        value: true
+      - handle: max_attempts
+        value: 60
+      - handle: interval_seconds
+        value: 5
+    task: self::query-conversion-result
+  - node_id: file-downloader#1
+    title: "下载文件 #1"
+    inputs_from:
+      - handle: url
+        from_node:
+          - node_id: query-conversion-result#1
+            output_handle: status
+      - handle: saved_path
+        value: null
+        from_flow:
+          - input_handle: saved_path
+      - handle: if_existing
+        value: override
+      - handle: threads_count
+        value: 1
+      - handle: headers
+        value:
+          {}
+      - handle: cookies
+        value:
+          {}
+      - handle: window_width
+        value: 7
+      - handle: failure_ladder
+        value:
+          - 5
+      - handle: min_segment_length
+        value: 1048576
+      - handle: once_fetch_size
+        value: 16384
+      - handle: timeout
+        value: 30
+      - handle: retry_times
+        value: 0
+      - handle: retry_sleep
+        value: 0
+    subflow: downloader::file-downloader
+inputs_def:
+  - handle: file
+    json_schema:
+      type: string
+      ui:widget: file
+    nullable: false
+    value: /oomol-driver/oomol-storage/ooimage.jpg
+    executor_name: nodejs
+  - handle: saved_path
+    json_schema:
+      type: string
+      ui:widget: save
+    nullable: true
+    value:
+    executor_name: python
+outputs_def:
+  - handle: saved_path
+    json_schema:
+      type: string
+      ui:widget: save
+    nullable: false
+    description: Path of the successfully downloaded file
+    executor_name: python
+outputs_from:
+  - handle: saved_path
+    from_node:
+      - node_id: file-downloader#1
+        output_handle: saved_path

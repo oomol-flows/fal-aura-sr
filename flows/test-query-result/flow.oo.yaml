@@ -1,7 +1,0 @@
-title: Test Query Conversion Result
-nodes:
-  - node_id: query-conversion-result#1
-    task: self::query-conversion-result
-    inputs_from:
-      - handle: task_id
-        value: "5d19c6b5-ab83-4009-8e9c-5a197750abd3"

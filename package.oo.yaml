@@ -5,5 +5,5 @@ scripts:
     poetry install --no-root
 dependencies:
   upload-to-cloud: 0.0.5
-  oomol-preview: 0.2.0
+  downloader: 0.1.1
 icon: ./icon.png

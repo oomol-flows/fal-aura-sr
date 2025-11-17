@@ -53,3 +53,4 @@ title: "Query Conversion Result"
 icon: ":carbon:status-change:"
 description: "Query the status and result of an image enhancement conversion
   task from fal-aura-sr API with optional polling support"
+private: true
