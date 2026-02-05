@@ -25,3 +25,4 @@ executor:
 title: "%enhance-image-clarity2%"
 icon: ":carbon:image-search-alt:"
 description: "%this-module-enhances-image-clarity-using-ai-powered-super-resolu2%"
+private: true
