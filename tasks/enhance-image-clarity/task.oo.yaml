@@ -3,6 +3,7 @@ inputs_def:
     description: "%url-of-the-image-to-enhance2%"
     json_schema:
       type: string
+      format: uri
     nullable: false
 
 outputs_def:

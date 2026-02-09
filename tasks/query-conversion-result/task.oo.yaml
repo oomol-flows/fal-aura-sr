@@ -34,6 +34,7 @@ outputs_def:
     description: "%url-of-the-enhanced-image-available-when-status-is-completed2%"
     json_schema:
       type: string
+      format: uri
   - handle: result
     description: "%complete-result-data-from-the-api2%"
     json_schema:

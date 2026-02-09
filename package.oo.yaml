@@ -1,7 +1,7 @@
 name: fal_aura_sr
 displayName: "%display-name%"
 description: "%description%"
-version: 0.0.3
+version: 0.0.4
 scripts:
   bootstrap: |
     npm install
@@ -9,6 +9,6 @@ scripts:
 dependencies:
   upload-to-cloud: 0.0.5
   downloader: 0.1.1
-icon: ""
+icon: ./icon.png
 repository: https://github.com/oomol-flows/fal-aura-sr.git
-releaseNotes: hide inner block
+releaseNotes: "fix: add params type"
