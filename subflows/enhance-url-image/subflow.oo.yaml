@@ -30,6 +30,7 @@ inputs_def:
     description: "%the-publicly-accessible-http-https-url-of-the-image-to-enhance-t2%"
     json_schema:
       type: string
+      format: uri
     nullable: false
     executor_name: python
 outputs_def:
