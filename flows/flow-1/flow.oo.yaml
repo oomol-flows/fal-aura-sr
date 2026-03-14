@@ -1,1 +1,7 @@
-nodes: []
+nodes:
+  - node_id: enhance-url-image#1
+    title: "Url Image Enhancement #1"
+    inputs_from:
+      - handle: image_url
+        value: https://cloud-storage.oomol.com/users/019343aa-c609-7498-b541-906f2860a1e2/chat-uploads/2026-03-14/fezkx6glzxch-1cb89b82-6285-45d6-9a41-28bf4fddb31c-1.png
+    subflow: self::enhance-url-image

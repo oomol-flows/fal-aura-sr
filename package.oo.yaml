@@ -1,14 +1,13 @@
 name: fal_aura_sr
 displayName: "%display-name%"
 description: "%description%"
-version: 0.0.5
+version: 0.0.6
 scripts:
   bootstrap: |
     npm install
     poetry install --no-root
 dependencies:
-  upload-to-cloud: 0.0.5
   downloader: 0.1.1
 icon: ./icon.png
 repository: https://github.com/oomol-flows/fal-aura-sr.git
-releaseNotes: "fix: add params type"
+releaseNotes: "fix: change return type"
